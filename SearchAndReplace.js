@@ -1,8 +1,10 @@
 function myReplace(str, before, after) {
     var stringArray = str.split(' ');
+
     //Preserve casing
-    if (before.charAt(0) === before.charAt(0).toUpperCase()) {
-        after.charAt(0).toUpperCase() + after.slice(1);
+    var b = before[0];
+    if (b === b.toUpperCase()) {
+        after = after[0].toUpperCase() + after.slice(1);
     }
 
     //Find item in string that matches before
