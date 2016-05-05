@@ -1,14 +1,19 @@
 function convertToRoman(num) {
-    var numbers = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-    var numeralList = ['I', 'IV', 'V', 'IX', 'X', 'XL', 'L', 'XC', 'C', 'CD', 'D', 'CM', 'M'];
+    //Convert given number into a roman numeral
+    var numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    var numeralList = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+    var roman = '';
+    var remaining = num;
 
-    //If provided number argument doesn't match anything in the numbers array, add to get to it
-    if (numbers.indexOf(num) == -1) {
-        console.log("Houston, we have a problem");
+    for (var index = 0; index < numbers.length; index++) {
+        while (numbers[index] <= remaining) {
+            roman += numeralList[index];
+            remaining -= numbers[index];
+        }
     }
-
-    return num;
+    console.log(roman);
 }
 
-convertToRoman(2);
-// => II
+
+convertToRoman(11);
+// => XI
